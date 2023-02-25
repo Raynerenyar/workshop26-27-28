@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Review</h1>
+    <form action="/review" method="post" data-th-object="${review}">
+    <!-- <form action="/review" method="put" data-th-object="${review}"> -->
+        <table>
+            <tr>
+                <td>Name: </td>
+                <td>
+                    <input type="text" data-th-field="*{user}" id="">
+                </td>
+                <td class="error" data-th-if="${#fields.hasErrors('user')}" data-th-errors="*{user}"></td>
+            </tr>
+            <tr>
+                <td>Rating: </td>
+                <td><input type="number" data-th-field="*{rating}" id="" min="1" max="10" style="width: 162px;" placeholder="1 - 10"></td>
+                <td class="error" data-th-if="${#fields.hasErrors('rating')}" data-th-errors="*{rating}"></td>
+            </tr>
+            <tr>
+                <td>Comment: </td>
+                <td>
+                    <textarea name="" id="" data-th-field="*{comment}" cols="30" rows="10" placeholder="Optional"></textarea>
+                    <!-- <input type="text" data-th-field="*{comment}" id="" placeholder="Optional"> -->
+                </td>
+            </tr>
+            <tr>
+                <td>Game id</td>
+                <td><input type="number" data-th-field="*{gid}" name="gid" id=""></td>
+                <td class="error" data-th-if="${#fields.hasErrors('gid')}" data-th-errors="*{gid}"></td>
+            </tr>
+        </table>
+        <button type="submit">Submit</button>
+    </form>
+    <link rel="stylesheet" href="/style/styles.css">
+</body>
+</html>
